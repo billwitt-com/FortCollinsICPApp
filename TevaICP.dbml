@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="SERVICE" Class="TevaICPDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=fcsc_icp_wql;Initial Catalog=SERVICE;User ID=sa" SettingsObjectName="ICPClientLinq.Properties.Settings" SettingsPropertyName="TevaICPConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ElementLines" Member="ElementLines">
+    <Type Name="ElementLine">
+      <Column Name="SampleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LineIndex" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ElementSymbol" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="Wavelength" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="iOrder" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="DuplicateNumber" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ElementName" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Mass" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Units" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="InternalStandard" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IEC" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LowCheckWarn" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="HighCheckWarn" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LowCheckFail" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="HighCheckFail" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="LowPrintLimit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HighPrintLimit" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CheckResultCode" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CheckValue" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="CheckUnits" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="IntStdReference" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PerformCheck" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PerformLowPrtLimCheck" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PerformHighPrtLimCheck" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PerformMDLCheck" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PerformMQLCheck" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="UseSigFigs" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SignificantFigures" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="CalibrationCorrCoeff" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ConcentrationFactor" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AverageResult" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="StandardDeviation" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PercentRSD" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FailFlags" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="CheckFlag" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PrintAverageResult" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="AutoDilutionFactor" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Reprocessed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MDL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MQL" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Sample_ElementLine" Member="Sample" ThisKey="SampleId" Type="Sample" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Samples" Member="Samples">
+    <Type Name="Sample">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="EchelleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LibraryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MethodId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SequenceId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CheckTableNameId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InstrumentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SampleDataId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FullFrameCatalogId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReferenceSampleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AcquireDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StorageDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Elements" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="InternalStandards" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CorrectionFactor" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SampleWeight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NominalWeight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="InitialVolume" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="FinalVolume" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AdjustmentFactor" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SemiQuant" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Reprocessed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CalculateByMSA" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="Custom1" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="Custom2" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="Custom3" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="Custom4" Type="System.String" DbType="NVarChar(12)" CanBeNull="true" />
+      <Column Name="CFCalcType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="PostProcessParentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Sample_ElementLine" Member="ElementLines" OtherKey="SampleId" Type="ElementLine" />
+    </Type>
+  </Table>
+</Database>

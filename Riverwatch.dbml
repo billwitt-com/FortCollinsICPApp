@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="rwprod" Class="RiverwatchDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=BILL2014\SQLEXPRESS2008;Initial Catalog=dbRiverwatchWaterData;Integrated Security=True" SettingsObjectName="ICPClientLinq.Properties.Settings" SettingsPropertyName="RiverwatchConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblMetalBarCode" Member="tblMetalBarCodes">
+    <Type Name="tblMetalBarCode">
+      <Column Name="MetalBarCodeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SampleNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NumberSample" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="LabID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Filtered" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ContainMetal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BoxNumber" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Verified" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LogDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AnalyzeDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserCreated" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="DateLastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserLastModified" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="SampleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblSample_tblMetalBarCode" Member="tblSample" ThisKey="SampleID" OtherKey="SampleID" Type="tblSample" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblInboundICP" Member="tblInboundICPs">
+    <Type Name="tblInboundICP">
+      <Column Name="inbICPID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="DUPLICATE" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="AL_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="AL_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="AS_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="AS_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="CA_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="CA_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="CD_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="CD_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="CU_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="CU_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="FE_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="FE_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="PB_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="PB_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="MG_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="MG_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="MN_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="MN_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="SE_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="SE_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="ZN_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="ZN_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="NA_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="NA_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="K_D" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="K_T" Type="System.Decimal" DbType="Decimal(12,6)" CanBeNull="true" />
+      <Column Name="ANADATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="COMPLETE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DATE_SENT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PassValStep" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="Reviewed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FailedChems" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="tblSampleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId1">
+      <Argument Parameter="inbICPID" Member="inbICPID" />
+      <Argument Parameter="cODE" Member="CODE" />
+      <Argument Parameter="dUPLICATE" Member="DUPLICATE" />
+      <Argument Parameter="aL_D" Member="AL_D" />
+      <Argument Parameter="aL_T" Member="AL_T" />
+      <Argument Parameter="aS_D" Member="AS_D" />
+      <Argument Parameter="aS_T" Member="AS_T" />
+      <Argument Parameter="cA_D" Member="CA_D" />
+      <Argument Parameter="cA_T" Member="CA_T" />
+      <Argument Parameter="cD_D" Member="CD_D" />
+      <Argument Parameter="cD_T" Member="CD_T" />
+      <Argument Parameter="cU_D" Member="CU_D" />
+      <Argument Parameter="cU_T" Member="CU_T" />
+      <Argument Parameter="fE_D" Member="FE_D" />
+      <Argument Parameter="fE_T" Member="FE_T" />
+      <Argument Parameter="pB_D" Member="PB_D" />
+      <Argument Parameter="pB_T" Member="PB_T" />
+      <Argument Parameter="mG_D" Member="MG_D" />
+      <Argument Parameter="mG_T" Member="MG_T" />
+      <Argument Parameter="mN_D" Member="MN_D" />
+      <Argument Parameter="mN_T" Member="MN_T" />
+      <Argument Parameter="sE_D" Member="SE_D" />
+      <Argument Parameter="sE_T" Member="SE_T" />
+      <Argument Parameter="zN_D" Member="ZN_D" />
+      <Argument Parameter="zN_T" Member="ZN_T" />
+      <Argument Parameter="aNADATE" Member="ANADATE" />
+      <Argument Parameter="cOMPLETE" Member="COMPLETE" />
+      <Argument Parameter="dATE_SENT" Member="DATE_SENT" />
+      <Argument Parameter="comments" Member="Comments" />
+      <Argument Parameter="passValStep" Member="PassValStep" />
+      <Argument Parameter="reviewed" Member="Reviewed" />
+      <Argument Parameter="failedChems" Member="FailedChems" />
+      <Argument Parameter="tblSampleID" Member="tblSampleID" />
+      <Argument Parameter="nA_D" Member="NA_D" />
+      <Argument Parameter="nA_T" Member="NA_T" />
+      <Argument Parameter="k_D" Member="K_D" />
+      <Argument Parameter="k_T" Member="K_T" />
+    </InsertFunction>
+  </Table>
+  <Table Name="dbo.tblChemValues" Member="tblChemValues">
+    <Type Name="tblChemValue">
+      <Column Name="ChemSampID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RepNum" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ChemParamID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ChemValue" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EnterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StoretUploaded" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Association Name="tblChemSamp_tblChemValue" Member="tblChemSamp" ThisKey="ChemSampID" OtherKey="ChemSampID" Type="tblChemSamp" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblChemSamps" Member="tblChemSamps">
+    <Type Name="tblChemSamp">
+      <Column Name="ChemSampID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SampleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActivityType" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ActivityID" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="CollDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CollMeth" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FieldGearID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GearConfigID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Medium" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="EnterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="tblChemSamp_tblChemValue" Member="tblChemValues" ThisKey="ChemSampID" OtherKey="ChemSampID" Type="tblChemValue" />
+      <Association Name="tblSample_tblChemSamp" Member="tblSample" ThisKey="SampleID" OtherKey="SampleID" Type="tblSample" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblSample" Member="tblSamples">
+    <Type Name="tblSample">
+      <Column Name="SampleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrganizationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SampleNumber" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NumberSample" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DateCollected" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TimeCollected" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateReceived" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataSheetIncluded" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MissingDataSheetReqDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ChainOfCustody" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="MissingDataSheetReceived" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NoMetals" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PhysicalHabitat" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Bug" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NoNutrient" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TotalSuspendedSolids" Type="System.Decimal" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NitratePhosphorus" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DuplicatedTSS" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DuplicatedNP" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserCreated" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="DateLastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserLastModified" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="ChlorideSulfate" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BlankMetals" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DuplicatedMetals" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BugsQA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DuplicatedCS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tblSample_tblMetalBarCode" Member="tblMetalBarCodes" ThisKey="SampleID" OtherKey="SampleID" Type="tblMetalBarCode" />
+      <Association Name="tblSample_tblChemSamp" Member="tblChemSamps" ThisKey="SampleID" OtherKey="SampleID" Type="tblChemSamp" />
+    </Type>
+  </Table>
+  <Function Id="FunctionId1" Name="dbo.instblInboundICP" Method="instblInboundICP">
+    <Parameter Name="inbICPID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="CODE" Parameter="cODE" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="DUPLICATE" Parameter="dUPLICATE" Type="System.String" DbType="Char(2)" />
+    <Parameter Name="AL_D" Parameter="aL_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="AL_T" Parameter="aL_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="AS_D" Parameter="aS_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="AS_T" Parameter="aS_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="CA_D" Parameter="cA_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="CA_T" Parameter="cA_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="CD_D" Parameter="cD_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="CD_T" Parameter="cD_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="CU_D" Parameter="cU_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="CU_T" Parameter="cU_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="FE_D" Parameter="fE_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="FE_T" Parameter="fE_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="PB_D" Parameter="pB_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="PB_T" Parameter="pB_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="MG_D" Parameter="mG_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="MG_T" Parameter="mG_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="MN_D" Parameter="mN_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="MN_T" Parameter="mN_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="SE_D" Parameter="sE_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="SE_T" Parameter="sE_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="ZN_D" Parameter="zN_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="ZN_T" Parameter="zN_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="ANADATE" Parameter="aNADATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="COMPLETE" Parameter="cOMPLETE" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="DATE_SENT" Parameter="dATE_SENT" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Comments" Parameter="comments" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="PassValStep" Parameter="passValStep" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="Reviewed" Parameter="reviewed" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="FailedChems" Parameter="failedChems" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="tblSampleID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NA_D" Parameter="nA_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="NA_T" Parameter="nA_T" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="K_D" Parameter="k_D" Type="System.Decimal" DbType="Decimal" />
+    <Parameter Name="K_T" Parameter="k_T" Type="System.Decimal" DbType="Decimal" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
