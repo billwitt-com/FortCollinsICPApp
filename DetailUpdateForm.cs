@@ -142,13 +142,13 @@ namespace ICPClientLinq
                 //    }
                 //}
                 // check if a manual override exists
-                // changed the logic here for strings 
+                // changed the logic here for strings  
                 if (intermediateICPList.Count() > 0)
                 {
                     foreach (var existingElem in intermediateICPList)
                     {
                         if (existingElem.Element == element.ElementSymbol &&
-                            existingElem.IndexLine.Value == element.LineIndex)
+                            existingElem.IndexLine.Value == element.LineIndex) 
                         {
                             aveResult = existingElem.AverageResult.Value;
                             failFlag = existingElem.FailFlags.Trim().Length > 0;

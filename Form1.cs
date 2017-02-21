@@ -19,6 +19,8 @@ using System.Windows.Forms;
 // found 'bug' in listing flags where a string with only a space was being reported to the form DetailUpdate 
 // forced input from box number into caps so it would work with lower case user entry
 // removed dups from localcooler and set BarCode to primary key to help prevent dups
+// bwitt Oct 25, 2016 Updating for WEBAPI instead of direct data base access
+// 02/18 looking for spread sheet output
 
 namespace ICPClientLinq
 {
@@ -76,7 +78,7 @@ namespace ICPClientLinq
             currentPage = tabStatus;    // default to the status page
             panel1.Visible = false;
 
-            ICPClientDataContext ctx = new ICPClientDataContext();
+            ICPClientDataContext ctx = new ICPClientDataContext();  // local db context, not RiverWatch production db
             limitList = from lim in ctx.tblLimits
                         select lim;
 
@@ -1401,15 +1403,18 @@ namespace ICPClientLinq
         /// <summary>
         /// Exports the results to riverwatch.
         /// </summary>
+        /// 
+        // XXXX need to call web api here to save each bar code
+
         private void exportResultsToRiverwatch()
         {
-            RiverwatchDataContext rwCtx = new RiverwatchDataContext();
+            RiverwatchDataContext rwCtx = new RiverwatchDataContext();  // this is production data base
 
             foreach (tblInboundICP inIcp in exportList)
             {
                 try
                 {
-                    rwCtx.tblInboundICPs.InsertOnSubmit(inIcp);
+                    rwCtx.tblInboundICPs.InsertOnSubmit(inIcp); // writes to data base
                     rwCtx.SubmitChanges();
                 }
                 catch (Exception ex)
@@ -1424,6 +1429,7 @@ namespace ICPClientLinq
 
 
         /// <summary>
+        /// This appears to be unused bwitt Oct 25, 2016
         /// Creates the export email.
         /// </summary>
         /// <param name="csvFile">The CSV file.</param>
@@ -1587,7 +1593,7 @@ namespace ICPClientLinq
         /// Creates the CSV file and returns the file path.
         /// </summary>
         /// <returns></returns>
-        private string createCsvFile()
+        private string createCsvFile() 
         {
             string retVal = null;
 
@@ -1714,8 +1720,8 @@ namespace ICPClientLinq
             statusStrip1.Update();
             try
             {
-                RiverwatchDataContext rwCtx = new RiverwatchDataContext();
-                ICPClientDataContext icptx = new ICPClientDataContext();
+                RiverwatchDataContext rwCtx = new RiverwatchDataContext();  // rw data base
+                ICPClientDataContext icptx = new ICPClientDataContext();    // local icp data base
 
                 // added 5 Dec 2011 - bwitt to help with possible timeout errors 
                 // will also increase timeout time 
@@ -1771,13 +1777,16 @@ namespace ICPClientLinq
                 }
 
             }
-                // XXXX should fix this as the inner exception is frequently null
-                // and this is probably not a sql exception or ....
+
+                // fixed to check for null value of innerexception 
+                // bwitt Oct 25, 2016
             catch (System.Data.SqlClient.SqlException sex)
             {
                 // catch error, log it and display to user bwitt 5 dec 2011
+                string innerMessage = ""; 
                 string outerMessage = sex.Message;
-                string innerMessage = sex.InnerException.Message;
+                if(sex.InnerException != null)
+                    innerMessage = sex.InnerException.Message;
                 Errors error = new Errors();
                 error.LogErrors(outerMessage); // send to data base for record
                 error.LogErrors(innerMessage);
@@ -1916,7 +1925,7 @@ namespace ICPClientLinq
             multiplier = resetProgressBar(tempIcpList.Count());
 
             int barCodesWErrors = 0;
-            foreach (TempICP icp in tempIcpList)
+            foreach (TempICP icp in tempIcpList)  
             {
                 validateICP(icp);
                 if (icp.errorList.Count > 0)
@@ -2519,13 +2528,17 @@ namespace ICPClientLinq
 
         private void btnCancelExport_Click(object sender, EventArgs e)
         {
-
+            // who knows what was supposed to happen here... 
+            // bwitt Oct 25, 2016
         }
+
+
         // XXXX lots of db hits here... 
         // checking for existance of barcode in data base. 
         // should resolve to one call to server, with bar code(s)
         // could return a text messsge as this does
         // or just a flag
+        // this is a text box that on each key stroke seems to do a db query
 
         private void txtBarcodeToCheck_TextChanged(object sender, EventArgs e)
         {
@@ -2539,6 +2552,9 @@ namespace ICPClientLinq
                 RiverwatchDataContext rwCtx = new RiverwatchDataContext();
 
                 // Check to see if the barCode exists in the Riverwatch Database
+                // seems to be assumption that there can be a barcode in metalbarcodes that is not associated with sample table
+                // XXXX does not occure at this time
+                // Perhaps we should make this uppercase for compare
                 IEnumerable<tblMetalBarCode> barCodeExistsList =
                     from bc in rwCtx.tblMetalBarCodes
                     join samp in rwCtx.tblSamples
@@ -2560,8 +2576,10 @@ namespace ICPClientLinq
                 }
 
 
-                // Check to see if the barCode already has sample associated with it
+                // XXXX Check to see if the barCode already has sample associated with it
                 // this uses input from the text box
+                // seems to only want barcodes that have collection method = 6
+                // and assumes metal results 
                 IEnumerable<tblMetalBarCode> barCodeHasResultsList =
                     from bc in rwCtx.tblMetalBarCodes
                     join samp in rwCtx.tblSamples
@@ -2676,6 +2694,7 @@ namespace ICPClientLinq
                 compareBy = cBy;
             }
 
+            // XXXX Not sure we care, but this seems wierd
             public int Compare(tblInboundICP icp1, tblInboundICP icp2)
             {
                 int retVal = 0;
