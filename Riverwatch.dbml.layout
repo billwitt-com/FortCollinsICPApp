@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.125" name="Riverwatch">
+  <DataContextMoniker Name="/RiverwatchDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3a08b6fb-27e0-4a36-90ce-2f56a1b5558b" absoluteBounds="0.5, 0.5, 2, 4.0785139973958326">
+      <DataClassMoniker Name="/RiverwatchDataContext/tblMetalBarCode" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b85b7d55-7a17-418f-9d8d-45623ba8d965" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="841bac7d-9700-4d65-9cad-c9d496119088" absoluteBounds="6.75, 0.5, 2, 7.9245426432291648">
+      <DataClassMoniker Name="/RiverwatchDataContext/tblInboundICP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="005ac792-969f-4b8e-a51e-ce1f4a3e936c" absoluteBounds="6.765, 0.96, 1.9700000000000002, 7.3645426432291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8b740ed-16c4-4c64-b3c5-14237a0a73d6" absoluteBounds="4, 7.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/RiverwatchDataContext/tblChemValue" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fbe2d90-51d0-4e57-a983-38817636cf2a" absoluteBounds="4.015, 8.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c62e29da-82a5-48e2-9c8f-ab338ad3f23c" absoluteBounds="0.5, 5.5, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/RiverwatchDataContext/tblChemSamp" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c751d898-6d03-4631-8036-021a9c7f57aa" absoluteBounds="0.51500000000000012, 5.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 8.08735270182292); (4 : 8.08735270182292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RiverwatchDataContext/tblChemSamp/tblChemSamp_tblChemValue" />
+      <nodes>
+        <classShapeMoniker Id="c62e29da-82a5-48e2-9c8f-ab338ad3f23c" />
+        <classShapeMoniker Id="d8b740ed-16c4-4c64-b3c5-14237a0a73d6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="63d67dc3-5abd-4906-acc2-0210d156dc00" absoluteBounds="4, 0.5, 2, 6.5784326171875">
+      <DataClassMoniker Name="/RiverwatchDataContext/tblSample" />
+      <nestedChildShapes>
+        <elementListCompartment Id="076d0c94-0d9b-44e0-94f5-7d75239b3089" absoluteBounds="4.0150000000000006, 0.96, 1.9700000000000002, 6.0184326171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4 : 6.28921630859375); (2.5 : 6.28921630859375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RiverwatchDataContext/tblSample/tblSample_tblChemSamp" />
+      <nodes>
+        <classShapeMoniker Id="63d67dc3-5abd-4906-acc2-0210d156dc00" />
+        <classShapeMoniker Id="c62e29da-82a5-48e2-9c8f-ab338ad3f23c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4 : 2.53925699869792); (2.5 : 2.53925699869792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RiverwatchDataContext/tblSample/tblSample_tblMetalBarCode" />
+      <nodes>
+        <classShapeMoniker Id="63d67dc3-5abd-4906-acc2-0210d156dc00" />
+        <classShapeMoniker Id="3a08b6fb-27e0-4a36-90ce-2f56a1b5558b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

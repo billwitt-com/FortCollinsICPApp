@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ICPClient" Class="ICPClientDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=BILL2014;Initial Catalog=ICPClient;Integrated Security=True" SettingsObjectName="ICPClientLinq.Properties.Settings" SettingsPropertyName="ICPClientConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[Log]" Member="Logs">
+    <Type Name="Log">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SeverityCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Severity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Msg" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLimits" Member="tblLimits">
+    <Type Name="tblLimit">
+      <Column Name="Element" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Reporting" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="MDL" Type="System.Decimal" DbType="Decimal(16,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DvsTDifference" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="LimitID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LocalCooler" Member="LocalCoolers">
+    <Type Name="LocalCooler">
+      <Column Name="CoolerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BarCode" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DUPLICATE" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="AL_D" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="AL_T" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="AS_D" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="AS_T" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="CA_D" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="CA_T" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="CD_D" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="CD_T" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="CU_D" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="CU_T" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="FE_D" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="FE_T" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="K_D" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="K_T" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="MG_D" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="MG_T" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="MN_D" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="MN_T" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="NA_D" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="NA_T" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="PB_D" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="PB_T" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="SE_D" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="SE_T" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="ZN_D" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="ZN_T" Type="System.Decimal" DbType="Decimal(12,1)" CanBeNull="true" />
+      <Column Name="ANADATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="COMPLETE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DATE_SENT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PassValStep" Type="System.Decimal" DbType="Decimal(4,2)" CanBeNull="true" />
+      <Column Name="Reviewed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FailedChems" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="tblSampleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Bottle_Complete" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Cooler" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CreatedWhen" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifiedBy" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ModifiedWhen" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LocaltblIntermeditateICP" Member="LocaltblIntermeditateICPs">
+    <Type Name="LocaltblIntermeditateICP">
+      <Column Name="IntermeditateIcpID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BarCode" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Anadate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Element" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="IndexLine" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Wavelength" Type="System.String" DbType="NChar(8)" CanBeNull="true" />
+      <Column Name="AverageResult" Type="System.Decimal" DbType="Decimal(16,2)" CanBeNull="true" />
+      <Column Name="FailFlags" Type="System.String" DbType="NVarChar(6)" CanBeNull="true" />
+      <Column Name="CheckFlag" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="Duplicate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Filtered" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

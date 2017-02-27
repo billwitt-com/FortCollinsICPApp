@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.875" name="TevaICP">
+  <DataContextMoniker Name="/TevaICPDataContext" />
+  <nestedChildShapes>
+    <classShape Id="45015d2a-8123-4b28-9775-18f72340fb87" absoluteBounds="0.5, 1.125, 2, 7.4457095117370278">
+      <DataClassMoniker Name="/TevaICPDataContext/ElementLine" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d92b21d6-abb5-43de-a535-51dfa9db14fe" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 6.8857095117370282" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0f4ae5ac-5dc5-480c-ba8f-7aaf5b477bc9" absoluteBounds="3.875, 1.125, 2, 6.6113996308048559">
+      <DataClassMoniker Name="/TevaICPDataContext/Sample" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4705fc09-271f-4cc3-af03-d7ba63b6085e" absoluteBounds="3.89, 1.585, 1.9700000000000002, 6.0513996308048563" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.875 : 4.43069981540243); (2.5 : 4.43069981540243)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/TevaICPDataContext/Sample/Sample_ElementLine" />
+      <nodes>
+        <classShapeMoniker Id="0f4ae5ac-5dc5-480c-ba8f-7aaf5b477bc9" />
+        <classShapeMoniker Id="45015d2a-8123-4b28-9775-18f72340fb87" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
